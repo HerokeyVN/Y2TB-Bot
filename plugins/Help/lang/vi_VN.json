@@ -40,5 +40,80 @@
     "args": {
       "{0}": "Prefix"
     }
+  },
+  "helpDashboard": {
+    "desc": "Main help dashboard",
+    "text": "📚 Y2TB Bot Help\n\nHiện có {commandCount} lệnh trong {pluginCount} plugin.\n\nNhóm lệnh - Trang {page}/{totalPages}:\n{pluginList}\n\nCách dùng:\n{prefix}help <plugin> - Xem lệnh trong plugin\n{prefix}help <lệnh> - Xem chi tiết một lệnh\n{prefix}help search <từ khóa> - Tìm lệnh\n{prefix}help all <trang> - Xem tất cả lệnh\n{prefix}help <trang> - Xem trang nhóm lệnh khác\n\nVí dụ:\n{prefix}help Hunt\n{prefix}help petbattle\n{prefix}help search tiền\n{prefix}help 2",
+    "args": {}
+  },
+  "helpPluginHeader": {
+    "desc": "Plugin help header",
+    "text": "🐾 {pluginName} - Trang {page}/{totalPages}\n{desc}\n\nLệnh:",
+    "args": {}
+  },
+  "helpPluginFooter": {
+    "desc": "Plugin help footer",
+    "text": "Dùng {prefix}help <lệnh> để xem chi tiết.",
+    "args": {}
+  },
+  "helpCommandDetail": {
+    "desc": "Command detail help",
+    "text": "📖 Lệnh: {name}\n\nPlugin: {pluginName}\nMô tả: {desc}\nCách dùng: {prefix}{help}\nVí dụ: {prefix}{example}",
+    "args": {}
+  },
+  "helpSearchHeader": {
+    "desc": "Search result header",
+    "text": "🔎 Kết quả tìm kiếm: {keyword}\nTìm thấy {count} lệnh.\n",
+    "args": {}
+  },
+  "helpSearchFooter": {
+    "desc": "Search result footer",
+    "text": "\nDùng {prefix}help <lệnh> để xem chi tiết.",
+    "args": {}
+  },
+  "helpAllHeader": {
+    "desc": "All commands header",
+    "text": "📚 Tất cả lệnh - Trang {page}/{totalPages}\n",
+    "args": {}
+  },
+  "helpAllFooter": {
+    "desc": "All commands footer",
+    "text": "\nDùng {prefix}help all <trang> để xem trang khác.",
+    "args": {}
+  },
+  "helpNoResult": {
+    "desc": "No result message",
+    "text": "Không tìm thấy `{input}`.",
+    "args": {}
+  },
+  "helpSuggestions": {
+    "desc": "Suggestions list",
+    "text": "Có thể bạn muốn:\n{suggestions}\n\nDùng {prefix}help search {input} để tìm thêm.",
+    "args": {}
+  },
+  "yesLabel": {
+    "desc": "Yes label",
+    "text": "Có",
+    "args": {}
+  },
+  "noLabel": {
+    "desc": "No label",
+    "text": "Không",
+    "args": {}
+  },
+  "pageOutOfRange": {
+    "desc": "Page out of range message",
+    "text": "Trang không hợp lệ. Hiện chỉ có {totalPages} trang.",
+    "args": {}
+  },
+  "pluginsModeHeader": {
+    "desc": "Plugins mode header",
+    "text": "📦 Danh sách plugin - Trang {page}/{totalPages}\n",
+    "args": {}
+  },
+  "pluginsModeFooter": {
+    "desc": "Plugins mode footer",
+    "text": "\nDùng {prefix}help <plugin> để xem lệnh trong plugin.",
+    "args": {}
   }
 }

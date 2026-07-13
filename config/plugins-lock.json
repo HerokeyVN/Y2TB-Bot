@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-12T18:30:00.000Z",
+  "updatedAt": "2026-07-13T12:32:45.478Z",
   "plugins": {
     "AntiUnsend": {
       "updateUrl": "https://raw.githubusercontent.com/VangBanLaNhat/Y2TB-data/refs/heads/main/plugins/AntiUnsend.zip"
@@ -43,14 +43,8 @@
     "Help": {
       "updateUrl": "https://raw.githubusercontent.com/VangBanLaNhat/Y2TB-data/refs/heads/main/plugins/Help.zip"
     },
-    "Hunt": {
-      "updateUrl": "https://raw.githubusercontent.com/VangBanLaNhat/Y2TB-data/refs/heads/main/plugins/Hunt.zip"
-    },
     "Math": {
       "updateUrl": "https://raw.githubusercontent.com/VangBanLaNhat/Y2TB-data/refs/heads/main/plugins/Math.zip"
-    },
-    "NotifyTag": {
-      "updateUrl": "https://raw.githubusercontent.com/VangBanLaNhat/Y2TB-data/refs/heads/main/plugins/NotifyTag.zip"
     },
     "Ping": {
       "updateUrl": "https://raw.githubusercontent.com/VangBanLaNhat/Y2TB-data/refs/heads/main/plugins/Pong.zip"
