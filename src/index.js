@@ -225,10 +225,6 @@ for (var i = 0; i < ll.length; i++) {
 			e2eeSessionStorePath = path.join(ROOT, e2eeSessionStorePath);
 		}
 		let appStatePath = fbStateExisting || path.join(ROOT, "config", "fbstate.json");
-		let fbStateAutoSaveMinutes = Number(global.coreconfig.facebook.fbStateAutoSaveMinutes);
-		if (!Number.isFinite(fbStateAutoSaveMinutes) || fbStateAutoSaveMinutes <= 0) {
-			fbStateAutoSaveMinutes = 30;
-		}
 		let loginOptions = {
 			"logLevel": global.coreconfig.facebook.logLevel,
 			"userAgent": global.coreconfig.facebook.userAgent,
@@ -242,8 +238,7 @@ for (var i = 0; i < ll.length; i++) {
 			"e2eeAutoConnect": global.coreconfig.facebook.e2eeAutoConnect !== false,
 			"e2eeDeviceStorePath": e2eeDeviceStorePath,
 			"e2eeSessionStorePath": e2eeSessionStorePath,
-			"fbStatePath": appStatePath,
-			"fbStateAutoSaveMinutes": fbStateAutoSaveMinutes
+			"fbStatePath": appStatePath
 		}
 		console.log("Manager", "Logging...")
 		let appState = {};

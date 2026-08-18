@@ -6,21 +6,12 @@ const listen = require(path.join(__dirname, "listen.js"))
 var log = require(path.join(__dirname, "..", "util", "log.js"));
 
 const ROOT = path.join(__dirname, "..", "..", "..");
-const DEFAULT_FBSTATE_AUTOSAVE_MINUTES = 30;
 
 function resolveFbStatePath(opts) {
     if (opts && typeof opts.fbStatePath === "string" && opts.fbStatePath.trim() !== "") {
         return opts.fbStatePath;
     }
     return path.join(ROOT, "config", "fbstate.json");
-}
-
-function resolveFbStateAutoSaveMinutes(opts) {
-    var minutes = Number(opts && opts.fbStateAutoSaveMinutes);
-    if (!Number.isFinite(minutes) || minutes <= 0) {
-        minutes = DEFAULT_FBSTATE_AUTOSAVE_MINUTES;
-    }
-    return minutes;
 }
 
 function writeFbState(api, fbStatePath) {
@@ -37,37 +28,15 @@ function writeFbState(api, fbStatePath) {
     fs.writeFileSync(fbStatePath, JSON.stringify(appState, null, "\t"), { mode: 0o666 });
 }
 
-function startFbStateAutoSave(api, opts) {
+function saveFbStateAtLogin(api, opts) {
     var fbStatePath = resolveFbStatePath(opts);
-    var intervalMinutes = resolveFbStateAutoSaveMinutes(opts);
-    var intervalMs = Math.max(1000, Math.floor(intervalMinutes * 60 * 1000));
-
-    if (global.fbStateAutoSaveTimer) {
-        clearInterval(global.fbStateAutoSaveTimer);
-        global.fbStateAutoSaveTimer = null;
-    }
 
     try {
         writeFbState(api, fbStatePath);
         log.log("Facebook", "Saved fbstate at login: " + fbStatePath);
     } catch (saveErr) {
-        log.warn("Facebook", "Initial fbstate save failed: " + (saveErr && saveErr.message ? saveErr.message : saveErr));
+        log.warn("Facebook", "Saving fbstate at login failed: " + (saveErr && saveErr.message ? saveErr.message : saveErr));
     }
-
-    global.fbStateAutoSaveTimer = setInterval(function () {
-        try {
-            writeFbState(api, fbStatePath);
-            log.log("Facebook", "Auto-updated fbstate: " + fbStatePath);
-        } catch (saveErr) {
-            log.warn("Facebook", "Auto-update fbstate failed: " + (saveErr && saveErr.message ? saveErr.message : saveErr));
-        }
-    }, intervalMs);
-
-    if (typeof global.fbStateAutoSaveTimer.unref === "function") {
-        global.fbStateAutoSaveTimer.unref();
-    }
-
-    log.log("Facebook", "Auto-update fbstate every " + intervalMinutes + " minutes.");
 }
 
 function isE2EEThread(threadID) {
@@ -178,7 +147,7 @@ module.exports = async (appState, loginOptions, botOptions) => {
         }
 
         log.log("Manager","Login successfuly!");
-        startFbStateAutoSave(api, botOpts);
+        saveFbStateAtLogin(api, botOpts);
 
         global.e2ee = createE2EEContext(api, null);
 
