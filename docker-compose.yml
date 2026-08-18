@@ -11,4 +11,4 @@ services:
       - ./config:/app/config
       - ./data:/app/data
       - ./logs:/app/logs
-      - ./plugins/cache:/app/plugins/cache
+      - ./plugins:/app/plugins

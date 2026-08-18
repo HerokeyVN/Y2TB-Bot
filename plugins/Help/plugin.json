@@ -12,22 +12,26 @@
   "commandList": {
     "help": {
       "help": {
-        "vi_VN": "[Lệnh] | [Số trang]",
-        "en_US": "[Command] | [Pages number]"
+        "vi_VN": "[plugin|lệnh|search|all] [từ khóa|trang]",
+        "en_US": "[plugin|command|search|all] [keyword|page]"
       },
       "tag": {
-        "vi_VN": "Xem các lệnh hiện có",
-        "en_US": "View existing commands"
+        "vi_VN": "Xem trợ giúp của bot",
+        "en_US": "View bot help"
       },
       "mainFunc": "main",
       "example": {
-        "vi_VN": "help",
-        "en_US": "help"
+        "vi_VN": "help Hunt",
+        "en_US": "help Hunt"
       }
     }
   },
   "author": "HerokeyVN",
   "version": "0.0.1",
   "updateUrl": "https://raw.githubusercontent.com/VangBanLaNhat/Y2TB-data/refs/heads/main/plugins/Help.zip",
-  "versionUrl": "https://raw.githubusercontent.com/VangBanLaNhat/Y2TB-data/refs/heads/main/plugins/version/Help.txt"
+  "versionUrl": "https://raw.githubusercontent.com/VangBanLaNhat/Y2TB-data/refs/heads/main/plugins/version/Help.txt",
+  "helpCategory": {
+    "vi_VN": "Hệ thống",
+    "en_US": "System"
+  }
 }

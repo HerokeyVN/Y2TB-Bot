@@ -40,5 +40,80 @@
     "args": {
       "{0}": "Prefix"
     }
+  },
+  "helpDashboard": {
+    "desc": "Main help dashboard",
+    "text": "📚 Help\n\nThere are {commandCount} commands across {pluginCount} plugins.\n\nCategories - Page {page}/{totalPages}:\n{pluginList}\n\nUsage:\n{prefix}help <plugin> - View commands in a plugin\n{prefix}help <command> - View one command in detail\n{prefix}help search <keyword> - Search commands\n{prefix}help all <page> - View all commands\n{prefix}help <page> - View another category page\n\nExamples:\n{prefix}help Hunt\n{prefix}help petbattle\n{prefix}help search money\n{prefix}help 2",
+    "args": {}
+  },
+  "helpPluginHeader": {
+    "desc": "Plugin help header",
+    "text": "🐾 {pluginName} - Page {page}/{totalPages}\n{desc}\n\nCommands:",
+    "args": {}
+  },
+  "helpPluginFooter": {
+    "desc": "Plugin help footer",
+    "text": "Use {prefix}help <command> to view details.",
+    "args": {}
+  },
+  "helpCommandDetail": {
+    "desc": "Command detail help",
+    "text": "📖 Command: {name}\n\nPlugin: {pluginName}\nDescription: {desc}\nUsage: {prefix}{help}\nExample: {prefix}{example}",
+    "args": {}
+  },
+  "helpSearchHeader": {
+    "desc": "Search result header",
+    "text": "🔎 Search results: {keyword}\nFound {count} commands.\n",
+    "args": {}
+  },
+  "helpSearchFooter": {
+    "desc": "Search result footer",
+    "text": "\nUse {prefix}help <command> to view details.",
+    "args": {}
+  },
+  "helpAllHeader": {
+    "desc": "All commands header",
+    "text": "📚 All Commands - Page {page}/{totalPages}\n",
+    "args": {}
+  },
+  "helpAllFooter": {
+    "desc": "All commands footer",
+    "text": "\nUse {prefix}help all <page> to view other pages.",
+    "args": {}
+  },
+  "helpNoResult": {
+    "desc": "No result message",
+    "text": "No result found for `{input}`.",
+    "args": {}
+  },
+  "helpSuggestions": {
+    "desc": "Suggestions list",
+    "text": "Did you mean:\n{suggestions}\n\nUse {prefix}help search {input} to search more.",
+    "args": {}
+  },
+  "yesLabel": {
+    "desc": "Yes label",
+    "text": "Yes",
+    "args": {}
+  },
+  "noLabel": {
+    "desc": "No label",
+    "text": "No",
+    "args": {}
+  },
+  "pageOutOfRange": {
+    "desc": "Page out of range message",
+    "text": "Invalid page. There are only {totalPages} pages.",
+    "args": {}
+  },
+  "pluginsModeHeader": {
+    "desc": "Plugins mode header",
+    "text": "📦 Plugins List - Page {page}/{totalPages}\n",
+    "args": {}
+  },
+  "pluginsModeFooter": {
+    "desc": "Plugins mode footer",
+    "text": "\nUse {prefix}help <plugin> to view commands in a plugin.",
+    "args": {}
   }
 }
