@@ -182,9 +182,51 @@ async function mess(event, api) {
 			}
 		}
 		if (!check) {
-			let rt = "Please install the “Help” plugin to see the available commands!"
-			if (global.lang["Help"]) rt = global.lang["Help"].exitCM[global.config.bot_info.lang].replace("{0}", global.config.facebook.prefix)
-			api.sendMessage(rt, event.threadID, event.messageID);
+			if (ms[0].trim() !== "" && global.plugins.Y2TB && global.plugins.Y2TB.command["help"]) {
+				// Route to help plugin for suggestions
+				event.args = [global.config.facebook.prefix + "help", ms[0]];
+				event.body = ms[0];
+				
+				try {
+					let name = global.plugins.Y2TB.command["help"].namePlugin;
+					let mainFunc = global.plugins.Y2TB.plugins[name].fullFunc;
+					let func = global.plugins.Y2TB.command["help"].mainFunc;
+
+					let adv = {
+						pluginName: name,
+						lang: global.lang[name],
+						rlang: (inp) => {
+							return global.lang[name] && global.lang[name][inp] ? global.lang[name][inp][global.config.bot_info.lang] : inp;
+						},
+						iso639: global.config.bot_info.lang,
+						config: global.configPl[name],
+						replaceMap,
+						getUserInfo,
+						getThreadInfo,
+						e2ee: global.e2ee
+					};
+
+					const pluginApi = createEventApi(api, event, global.e2eeClient, log);
+					const ctx = createPluginContext({ api, event, e2eeClient: global.e2eeClient, log });
+					adv.ctx = ctx;
+					adv.message = ctx;
+					adv.send = ctx.send;
+					adv.reply = ctx.reply;
+					adv.react = ctx.react;
+					adv.unsend = ctx.unsend;
+					adv.isE2EE = ctx.isE2EE;
+					
+					await mainFunc[func](event, pluginApi, global.e2ee, adv);
+				} catch (err) {
+					log.err("Help fallback", err);
+				}
+			} else if (ms[0].trim() !== "") {
+				let rt = "Please install the “Help” plugin to see the available commands!"
+				if (global.lang["Help"] && global.lang["Help"].exitCM) {
+					rt = global.lang["Help"].exitCM[global.config.bot_info.lang].replace("{0}", global.config.facebook.prefix);
+				}
+				api.sendMessage(rt, event.threadID, event.messageID);
+			}
 		}
 	}
 
